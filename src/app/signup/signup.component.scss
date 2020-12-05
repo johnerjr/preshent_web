@@ -1,0 +1,172 @@
+.login{
+  background: url("src/assets/img/login-bg.jpg") no-repeat fixed center top; 
+  background-size: cover; 
+  padding: 30px 0; 
+  min-height: 657px;
+}
+ol, ul { list-style: none; }
+a, .btn { transition: all 0.5s ease; }
+a:active, a:hover, a:focus, .btn:focus, .btn:active, .btn:hover { outline: 0; }
+
+a { color: #236477; text-decoration: none; }
+a:focus, a:hover { color: #7CAD3E; text-decoration: none; }
+
+b, strong { font-weight: bold; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+select{appearance: none; -webkit-appearance: none; -moz-appearance: none; background: url(src/assets/img/selArrow.svg) no-repeat right center;}
+
+.formWidget{background-color: rgba(255,255,255,0.85); max-width: 565px; margin: 0 auto; border-radius:10px; -webkit-border-radius:10px; padding: 50px 30px;}
+.title-widget{margin-bottom: 30px;}
+.title-widget h2{font-size: 36px; text-transform: uppercase; font-weight: 700; margin-bottom:10px;}
+
+.loginForm{max-width: 360px; margin: 0 auto;}
+.register{max-width: 760px;}
+.register .loginForm, .stepsWidget{max-width: 560px;}
+.formeffect{margin: 20px 0;  position: relative; display: inline-block; width: 100%;}
+.mtinputStyle{padding:5px 0; border: none; border-bottom: 2px #C1C1C1 solid; width: 100%; background-color: transparent;}
+span.spanMT {
+    padding:5px 0;
+    pointer-events: none;
+    position:absolute;
+    left:0;
+    top:0;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);   
+  }
+  input.mtinputStyle:focus ~ span, input.mtinputStyle:not(:placeholder-shown) ~ span {
+    opacity:1;
+    transform: scale(0.75) translateY(-100%) translateX(-10px);
+  }
+  
+  /* For IE Browsers*/
+  input.mtinputStyle:focus ~ span, input.mtinputStyle:not(:-ms-input-placeholder) ~ span {
+    opacity:1;
+    transform: scale(0.75) translateY(-100%) translateX(-10px);
+  }
+  input.mtinputStyle:focus{box-shadow: none; outline: none; border-color: #202020;}
+
+  .mtinputStyle::-webkit-input-placeholder { /* Edge */
+    color: #202020;
+  }
+  
+  .mtinputStyle:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #202020;
+  }
+  
+  .mtinputStyle::placeholder {
+    color: #202020;
+  }
+
+   .btn{font-size: 16px; text-transform: uppercase; min-width: 125px; }
+   .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus{background-color: #236477; border-color: #236477; color: #fff;}
+   .btn-green, .btn-green:hover, .btn-green:focus, .btn-green.focus{background-color: #7CAD3E; border-color: #7CAD3E; color: #fff;}
+   .btn-gray, .btn-gray:hover, .btn-gray:focus, .btn-gray.focus{background-color: #C1C1C1; border-color: #C1C1C1; color: #888888;}
+
+   .facebook-btn, .facebook-btn:hover, .facebook-btn:focus, .facebook-btn.focus {background-color: #3B5998; border-color: #3B5998;}
+ 
+  .btn:hover{opacity: 0.8;}
+  .larger-btn{height: 50px; font-size: 18px; font-weight: 700;}
+
+  .or{position: relative;}
+  .or:after{position: absolute; content: " "; background-color:#C1C1C1; height: 1px; display: block; width: 100%; top:50%; left: 0; }
+  .or span{background-color: #dddfdd; color: #999999; display: inline-block; padding: 3px; position: relative; z-index: 1;}
+
+  .valign-middle{vertical-align: middle;}
+  .underlineLink{text-decoration: underline;}
+  .underlineLink:hover{text-decoration: none;}
+
+  .step{width:33.33%; font-size: 14px; font-weight: 600; text-transform: uppercase; color: #666666; line-height: 1.3; position: relative;} 
+  .stepsWidget:after, .step:after{position: absolute; content: " "; height: 4px; background-color: #c1c1c1; width: 100%; top:7px; left: 0;}  
+  .step-2{text-align: center;}
+  .step-3{text-align: right;}
+  .dot{width: 17px; height: 17px; display: inline-block; background-color: #c1c1c1; border-radius: 50%; -webkit-border-radius: 50%; position: relative; z-index: 2;}
+
+  .complete.step:after, .active.step:after{background-color: #236477; z-index: 1;}
+  .active.step .dot{background-color: #236477;}
+  .active.step-1:after{width: 0;}
+  .active.step-2:after{width: 50%;}
+  .complete.step-1:after, .complete.step-2:after{width: 100%;}
+  .star{color: #ff0000;}
+
+  .radioWidget, .btnsWidget{margin-left:-15px; margin-right: -15px;}
+  .radioWidget .customCheck, .btnsWidget .btn{margin-left:15px; margin-right: 15px;}
+  /* The container */
+.customCheck {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.customCheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  margin-top: -12px;
+  background-color: #C1C1C1;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.customCheck:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.customCheck input:checked ~ .checkmark {
+  background-color: #236477;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.customCheck input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+/* .customCheck .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+} */
+
+.selectPlan > li{padding: 20px 0; border-bottom:2px #c1c1c1 solid;}
+.selectPlan > li .customCheck{font-size: 24px; font-weight: 700;}
+.costCol{font-size:20px; font-weight: 700;}
+
+  @media all and (max-width:575px){
+    .title-widget h2{font-size: 25px;}
+    .step{font-size: 10px;}
+    .selectPlan > li .customCheck, .costCol{font-size: 16px;}
+  }
+
+  .error {
+    color: red;
+  }

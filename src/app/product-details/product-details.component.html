@@ -1,0 +1,133 @@
+<ngx-ui-loader></ngx-ui-loader>
+<section class="sectionWidget py-4">
+    <div class="container">
+        <p class="borderLine backlinkWidth pb-2 mb-4">
+            <a href="javascript:;" (click)="goBack()">
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to result
+            </a>
+        </p>
+
+        <div class="row" *ngIf="item">
+            <div class="col-md-6 mb-3">
+                <p class="mainimage" *ngIf="selectedImg"><img src="{{selectedImg[0]?.image}}" alt=""></p>
+                <p class="mainimage" *ngIf="selectedImg === null"><img class="maxLength" src="../../assets/img/noImage.png" alt=""></p>
+
+                <ul class="thumbImgs d-flex flex-wrap">
+                    <li *ngFor="let img of s3Img">
+                        <a *ngIf="img?.image !== 'null'" (click)="selectS3Img(img);"><img src="{{img.image}}" alt="" style="cursor: pointer;"></a>
+                    </li>
+
+                    <!-- <p class="itemImg" *ngIf="item.image === 'null'"><img src="../../assets/img/noImage.png" alt=""></p> -->
+
+                    <!-- <li><a href="#"><img src="images/productimage2.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/productimage2.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="images/productimage2.jpg" alt=""></a></li> -->
+                </ul>
+            </div>
+
+            <div class="col-md-6 prodDetails">
+                <h2><a href="javascript:void(0);">{{item.name}}</a></h2>
+                <h3 *ngIf="offers.length > 0">Available from:</h3>
+                <div class="row offerOptions" *ngIf="offers.length > 0">
+                    <div *ngFor="let offer of offers" class="col-md-4 col-6 form-group">
+                        <a href="javascript:void(0);"><span class="d-block">{{offer.seller_name}}</span>
+                            <strong>${{offer.product_price}}</strong></a>
+                    </div>
+                    <!-- <div class="col-md-4 col-6 form-group">
+                        <a href="#"><span class="d-block">BestBuy</span> <strong>$399.99</strong></a>
+                    </div>
+                    <div class="col-md-4 col-6 form-group">
+                        <a href="#"><span class="d-block">CapSells</span> <strong>$385.00</strong></a>
+                    </div>
+                    <div class="col-md-4 col-6 form-group">
+                        <a href="#"><span class="d-block">Offer4</span> <strong>$399.99</strong></a>
+                    </div>
+                    <div class="col-md-4 col-6 form-group">
+                        <a href="#"><span class="d-block">Offer5</span> <strong>$405.99</strong></a>
+                    </div>
+                    <div class="col-md-4 col-6 form-group">
+                        <a href="#"><span class="d-block">Offer6</span> <strong>$385.00</strong></a>
+                    </div>                               -->
+                </div>
+                <!-- <p class="seeMore text-right" *ngIf="offers.length > 0"><a href="javascript:;">See 9 more</a></p> -->
+
+                <div class="descriptionWidget mb-3">
+                    <h3>Description:</h3>
+                    <p>{{item.description}}</p>
+                </div>
+
+                <ul class="otherDetails mb-3">
+                    <li>
+                        <label>Lumen (lm)</label>
+                        <span>{{item.lumen || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Watt(w)</label>
+                        <span>{{item.watt  || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Kilowatt-hour(kWh)</label>
+                        <span>{{item.kilowatt_hour || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Gigahertz(GHz)</label>
+                        <span>{{item.gigahertz || 0}}</span>
+                    </li>
+
+                    <li>
+                        <label>Liter(l)</label>
+                        <span>{{item.liter || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Gallon</label>
+                        <span>{{item.gallon || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Volt(V)</label>
+                        <span>{{item.volt || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Ampere(A)</label>
+                        <span>{{item.ampere || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Ampere-hour(Ah)</label>
+                        <span>{{item.ampere_hour || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Gallons per minute(GPM)</label>
+                        <span>{{item.gallons_per_minute || 0}}</span>
+                    </li>
+                    <li>
+                        <label>British thermal unit(BTU)</label>
+                        <span>{{item.british_thermal_unit || 0}}</span>
+                    </li>
+
+                    <li>
+                        <label>R-Value</label>
+                        <span>{{item.r_value || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Width(in)</label>
+                        <span>{{item.width || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Height(in)</label>
+                        <span>{{item.height || 0}}</span>
+                    </li>
+                    <li>
+                        <label>Depth(in)</label>
+                        <span>{{item.depth || 0}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!item">
+            <div class="col-md-6 mb-3">
+                Detail not found!
+            </div>
+
+        </div>
+    </div>
+</section>

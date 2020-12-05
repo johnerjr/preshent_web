@@ -1,0 +1,75 @@
+
+
+
+
+
+figure{min-height: 200px;}
+figure:after{position: absolute; top:0; left: 0; height: 100%; width: 100%; content: " "; opacity: 0.8; mix-blend-mode: color;
+background: #236477; /* Old browsers */
+background: -moz-linear-gradient(top,  #236477 0%, #7cad3e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #236477 0%,#7cad3e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #236477 0%,#7cad3e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#236477', endColorstr='#7cad3e',GradientType=0 ); /* IE6-9 */
+}
+figure > img, figure > video{display: block;}
+figure > img{height: 200px; object-fit: cover; width: 100%;}
+figure > video{width:100%; height: 550px; object-fit: cover;}
+.bannertext{position: absolute; width: 100%; height: 100%; left: 0; top:0; font-size: 16px; font-weight: bold; color: #fff; line-height: 1.2; z-index: 1; text-shadow: 0 3px 6px #000000; padding: 50px 0;}
+.bannertext span{font-size: 28px; font-family: "Oswald", sans-serif; text-transform: uppercase;}
+@media all and (min-width:575px){
+  .bannertext{font-size: 35px;}
+  .bannertext span{font-size: 60px;}
+}
+
+@media all and (max-width:767px){
+    figure > video{height: 300px;}
+    .followUs{justify-content: center; margin-bottom: 30px;}
+    h1{font-size: 24px; margin-bottom: 20px;}
+    h2{font-size: 18px;}
+    .sectionWidget, footer{padding: 30px 0;}
+  
+    .lookingFor .form-control,
+  .lookingFor .btn{border-radius:10px; width: 100%; margin-bottom: 10px;}
+  }
+
+  @media all and (max-width:1199px){
+    .container{max-width: inherit; width:100%;}
+  }
+
+  .sectionWidget{padding:60px 0;}
+.sectionWidget h2{text-align: center; margin-bottom: 30px;}
+
+
+@media all and (max-width:767px){
+    figure > video{height: 300px;}
+    .followUs{justify-content: center; margin-bottom: 30px;}
+    h1{font-size: 24px; margin-bottom: 20px;}
+    h2{font-size: 18px;}
+    .sectionWidget, footer{padding: 30px 0;}
+  
+    .lookingFor .form-control,
+  .lookingFor .btn{border-radius:10px; width: 100%; margin-bottom: 10px;}
+  }
+
+  .sectionWidget{padding:60px 0;}
+.sectionWidget h2{text-align: center; margin-bottom: 30px;}
+
+
+
+label.selected {  
+  background: #236477;  
+  border-color: #236477;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease; 
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+label.notSelected {  
+  background: #fff;  
+  border-color: #fff;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease; 
+  color: #fff;
+  border: 1px solid #ddd; 
+}

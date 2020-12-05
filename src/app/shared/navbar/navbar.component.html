@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar" id="fixedTop" *ngIf="showHeaderFooter">
+  <div class="container">
+      <a class="navbar-brand" href="#"><img src="./assets/img/logo.svg" alt="Preshent"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/aboutus']">About Us</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link"  href="http://18.225.0.47:4252" target="_blank">Admin</a>
+              </li>
+              <li class="nav-item ml-lg-3 mb-2">
+              <a class="nav-link login-link mx-lg-2 mb-lg-0" [routerLink]="['/login']">Login</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link register-link mx-lg-2" [routerLink]="['/register']">Register</a>
+              </li>
+          </ul>
+      </div>
+  </div>        
+</nav>
+

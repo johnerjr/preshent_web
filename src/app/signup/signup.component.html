@@ -1,0 +1,306 @@
+<div class="login">
+  <p class="text-center logo mb-4">
+    <img src="../../assets/img/logo.svg" alt="Preshent" />
+  </p>
+  
+    <div class="formWidget register" id="step1">
+      <div class="title-widget text-center">
+        <h2>Registration</h2>
+        <p>Sign up to your Preshent account</p>
+      </div>
+      <div class="stepsWidget position-relative mx-auto d-flex">
+        <div class="step step-1 active">
+          <span class="dot"></span>
+          <p>Your <span class="d-block">Account</span></p>
+        </div>
+        <div class="step step-2">
+          <span class="dot"></span>
+          <p>Personal <span class="d-block">Information</span></p>
+        </div>
+        <div class="step step-3">
+          <span class="dot"></span>
+          <p>Select the <span class="d-block">Subscription</span></p>
+        </div>
+      </div>
+      <div class="loginForm">
+        <form [formGroup]="afForm" autocomplete="off" novalidate>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="Username" formControlName="username" required>
+                <span class="spanMT">Username</span>
+                <div *ngIf="(submitted && af.username.errors) || (af.username.errors && (af.username.dirty || af.username.touched))" class="error">
+                  <span *ngIf="af.username.errors.required">Username is required.</span>
+                  <span *ngIf="af.username.errors.pattern">Enter a valid username.</span>
+                </div>
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="email" class="mtinputStyle" placeholder="Email" formControlName="email" required>
+                <span class="spanMT">Email</span>
+                <div *ngIf="(submitted && af.email.errors) || (af.email.errors && (af.email.dirty || af.email.touched))" class="error">
+                  <span *ngIf="af.email.errors.required">Email is required.</span>
+                  <span *ngIf="af.email.errors.pattern">Enter a valid email.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="password" class="mtinputStyle" placeholder="" formControlName="password" required>
+                <span class="spanMT">Password</span>
+                <div *ngIf="(submitted && af.password.errors) || (af.password.errors && (af.password.dirty || af.password.touched))" class="error">
+                  <span *ngIf="af.password.errors.required">Password is required.</span>
+                </div>
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="password" class="mtinputStyle" placeholder="" formControlName="cpassword" required>
+                <span class="spanMT">Confirm Password</span>
+                <div *ngIf="(submitted && af.cpassword.errors) || (af.cpassword.errors && (af.cpassword.dirty || af.cpassword.touched))" class="error">
+                  <span *ngIf="af.cpassword.errors.required">Confirm password is required.</span>
+                </div>
+                <div *ngIf="af.cpassword.valid && afForm.errors?.mismatch" class="error">Password mismatch.</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="text-center btnsWidget mt-5">
+            <button type="submit" class="btn btn-primary form-group" (click)="submitForm()">Next</button>
+          </div>
+          <p class="text-center">
+            Already have an account?
+            <a [routerLink]="['/login']" class="underlineLink"><strong>Login</strong></a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="formWidget register" id="step2" style="display: none;">
+      <div class="title-widget text-center">
+        <h2>Registration</h2>
+        <p>Sign up to your Preshent account</p>
+      </div>
+      <div class="stepsWidget position-relative mx-auto d-flex">
+        <div class="step step-1 active complete">
+          <span class="dot"></span>
+          <p>Your <span class="d-block">Account</span></p>
+        </div>
+        <div class="step step-2 active">
+          <span class="dot"></span>
+          <p>Personal <span class="d-block">Information</span></p>
+        </div>
+        <div class="step step-3">
+          <span class="dot"></span>
+          <p>Select the <span class="d-block">Subscription</span></p>
+        </div>
+      </div>
+      <div class="loginForm">
+        <form [formGroup]="piForm" novalidate>
+          <div class="radioWidget mt-5">
+            <label class="customCheck d-inline-block">Mr.
+              <input type="radio" checked="checked" id="mr" value="1" name="titles" formControlName="titles" />
+              <span class="checkmark"></span>
+            </label>
+            <label class="customCheck d-inline-block">Mrs.
+              <input type="radio" checked="checked" id="mrs" value="2" name="titles" formControlName="titles" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="firstname" required>
+                <span class="spanMT">First Name <b class="star">*</b></span>
+                <div *ngIf="(submitted && pi.firstname.errors) || (pi.firstname.errors && (pi.firstname.dirty || pi.firstname.touched))" class="error">
+                  <span *ngIf="pi.firstname.errors.required">Firstname is required.</span>
+                  <span *ngIf="pi.firstname.errors.pattern">Enter a valid firstname.</span>
+                </div>
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="lastname" required>
+                <span class="spanMT">Last Name <b class="star">*</b></span>
+                <div *ngIf="(submitted && pi.lastname.errors) || (pi.lastname.errors && (pi.lastname.dirty || pi.lastname.touched))" class="error">
+                  <span *ngIf="pi.lastname.errors.required">Lastname is required.</span>
+                  <span *ngIf="pi.lastname.errors.pattern">Enter a valid lastname.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-6">
+              <label class="formeffect">
+                <select class="mtinputStyle">
+                  <option>Title</option>
+                </select>
+              </label>
+            </div> -->
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="phone" minlength="7" maxlength="10" required>
+                <span class="spanMT">Phone <b class="star">*</b></span>
+                <div *ngIf="(submitted && pi.phone.errors) || (pi.phone.errors && (pi.phone.dirty || pi.phone.touched))" class="error">
+                  <span *ngIf="pi.phone.errors.required">Phone is required.</span>
+                  <span *ngIf="pi.phone.errors.minlength">Phone must be at least 7 numbers.</span>
+                  <span *ngIf="pi.phone.errors.pattern">Enter a valid phone.</span>
+                </div>
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="company">
+                <span class="spanMT">Company Name</span>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="street">
+                <span class="spanMT">Street</span>
+              </label>
+            </div>
+            <div class="col-sm-4">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="streetno">
+                <span class="spanMT">No.</span>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="city">
+                <span class="spanMT">City</span>
+              </label>
+            </div>
+            <div class="col-sm-4">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder="" formControlName="postal">
+                <span class="spanMT">Postal</span>
+              </label>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder=" " />
+                <span class="spanMT">Email <b class="star">*</b></span>
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="formeffect">
+                <input type="text" class="mtinputStyle" placeholder=" " />
+                <span class="spanMT">Phone <b class="star">*</b></span>
+              </label>
+            </div>
+          </div> -->
+
+          <div class="text-center btnsWidget mt-5">
+            <button type="button" class="btn btn-gray form-group" (click)="moveStep1()">Back</button>
+            <button type="button" class="btn btn-primary form-group" (click)="submitPiForm()">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="formWidget register" id="step3" style="display: none;">
+      <div class="title-widget text-center">
+        <h2>Registration</h2>
+        <p>Sign up to your Preshent account</p>
+      </div>
+      <div class="stepsWidget position-relative mx-auto d-flex">
+        <div class="step step-1 active complete">
+          <span class="dot"></span>
+          <p>Your <span class="d-block">Account</span></p>
+        </div>
+        <div class="step step-2 active complete">
+          <span class="dot"></span>
+          <p>Personal <span class="d-block">Information</span></p>
+        </div>
+        <div class="step step-3 active">
+          <span class="dot"></span>
+          <p>Select the <span class="d-block">Subscription</span></p>
+        </div>
+      </div>
+      <div class="loginForm">
+        <form [formGroup]="sForm" novalidate>
+          <ul class="selectPlan mt-4">
+            <li class="d-flex justify-content-between align-items-center">
+              <div class="radioWidget">
+                <label class="customCheck mb-0 d-inline-block">Basic Membership
+                  <input type="radio" id="basic" value="1" name="subscription" formControlName="subscription" checked="checked" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <span class="costCol">Free</span>
+            </li>
+            <li class="d-flex justify-content-between align-items-center">
+              <div class="radioWidget">
+                <label class="customCheck mb-0 d-inline-block">Pro Membership
+                  <input type="radio" id="pro" value="2" name="subscription" formControlName="subscription" checked="checked" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <span class="costCol">$30</span>
+            </li>
+            <li class="d-flex justify-content-between align-items-center">
+              <div class="radioWidget">
+                <label class="customCheck mb-0 d-inline-block">Enterprise Solution
+                  <input type="radio" id="enterprise" value="3" name="subscription" formControlName="subscription" checked="checked" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <span class="costCol">$80</span>
+            </li>
+          </ul>
+          <div class="text-center btnsWidget mt-5">
+            <button type="button" class="btn btn-gray form-group" (click)="moveStep2()">Back</button>
+            <button type="button" class="btn btn-primary form-group" (click)="submitsForm()">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="formWidget register" id="step4" style="display: none;">
+      <div class="title-widget text-center">
+        <h2>Registration</h2>
+        <p>Sign up to your Preshent account</p>
+      </div>
+      <div class="loginForm">
+        <form [formGroup]="qForm" (ngSubmit)="submitqForm()" novalidate>
+          <p><b>Tell me about yourself?</b></p>
+          <div class="questionFields row align-items-center mt-4">
+            <label class="col-sm-4 text-sm-right">I'm a</label>
+            <div class="col-sm-6">
+              <select class="mtinputStyle" formControlName="about">
+                <option value="">Choose an option</option>
+                <option *ngFor="let about of questionAbout" [ngValue]="about">{{about}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="questionFields row align-items-center mt-4">
+            <label class="col-sm-4 text-sm-right">looking for</label>
+            <div class="col-sm-6">
+              <select class="mtinputStyle" formControlName="looking">
+                <!-- <option>All Industry recommendations</option> -->
+                <option value="">Choose an option</option>
+                <option *ngFor="let look of questionLooking" [ngValue]="look">{{look}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="text-center btnsWidget mt-5">
+            <button type="submit" class="btn btn-primary form-group">
+              Create Your Wallet
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  <!-- </form> -->
+</div>

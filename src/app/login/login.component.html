@@ -1,0 +1,36 @@
+<!-- <div class="container"> -->
+<div class="login">
+    <p class="text-center logo mb-4"><img src="../../assets/img/logo.svg" alt="Preshent"/></p>
+    <div class="formWidget">
+        <div class="title-widget text-center">
+            <h2>Login</h2>
+            <p>Enter in to your Preshent account</p>
+        </div>
+        <form class="loginForm" [formGroup]="mainForm" (ngSubmit)="submitForm()" novalidate>        
+            <div class="formgroup">
+                <label class="formeffect">
+                    <input type="text" class="mtinputStyle" placeholder="Username" formControlName="username" required>
+                    <span class="spanMT">Username</span>
+                    <div *ngIf="(submitted && f.username.errors) || (f.username.errors && (f.username.dirty || f.username.touched))" class="error">
+                        <span *ngIf="f.username.errors.required">Username is required.</span>
+                        <span *ngIf="f.username.errors.pattern">Enter a valid username.</span>
+                    </div>
+                </label>
+            </div>
+            <div class="formgroup">
+                <label class="formeffect">
+                    <input type="password" class="mtinputStyle" placeholder="" formControlName="password" required>
+                    <span class="spanMT">Password</span>
+                    <div *ngIf="(submitted && f.password.errors) || (f.password.errors && (f.password.dirty || f.password.touched))" class="error">
+                        <span *ngIf="f.password.errors.required">Password is required.</span>
+                    </div>
+                </label>
+            </div>
+            <p class="text-right mb-3"><a [routerLink]="['/forgot']" class="underlineLink">Forgot password?</a></p>
+            <button type="submit" class="btn btn-green w-100 larger-btn form-group">Login</button>
+            <p class="or form-group text-center"><span>OR Login with</span></p>
+            <button type="submit" class="btn btn-primary facebook-btn w-100 larger-btn form-group"><img src="../../assets/img/facebook-logo.svg" alt="facebook" class="mr-2 valign-middle" />Facebook</button>
+            <p class="text-center">Don’t have an account? <a [routerLink]="['/register']" class="underlineLink"><strong>Sign Up</strong></a></p>
+        </form>
+    </div>
+</div>

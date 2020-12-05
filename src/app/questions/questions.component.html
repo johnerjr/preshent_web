@@ -1,0 +1,127 @@
+<ngx-ui-loader></ngx-ui-loader>
+
+<figure class="position-relative">
+    <img src="./assets/img/banner.jpg" alt="">
+
+    <div class="bannertext">
+        <div class="container d-flex align-items-center justify-content-center h-100">
+            <p class="text-center">The Premier AI Curated Platform for <span class="d-block">Global
+                    Sustainability</span></p>
+        </div>
+    </div>
+</figure>
+
+<!-- IF NO QUESTIONS AVIALABLE -->
+<div *ngIf="questions?.length < 1">
+    <div class="ques">
+        <div>
+            <section class="sectionWidget questionSection">
+                <div class="container">
+                    <div class="questionTitle position-relative">
+                        <a href="javaScript:void(0);" (click)="goBack();" class="backQus">
+                            <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back</a>
+                        <h2>No Questions Avialable!</h2>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- IF NO QUESTIONS AVIALABLE -->
+
+
+<div class="scroll" *ngFor="let question of questions let i = index;">
+    <div id="question{{i}}" class="ques" style="display: none;">
+        <div *ngIf="question?.answer?.length >0">
+
+            <section class="topBreadBar" *ngIf="i != 0">
+                <div class="container">
+                    <!--Mobile View-->
+                    <div class="dropdown d-block d-md-none">
+                        <button class="btn btn-secondary dropdown-toggle d-block d-md-none position-relative"
+                            type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false"
+                            aria-expanded="true">{{selectedFlow}}</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <ul class="breadCrumresults d-md-flex" *ngFor="let slectQueAns of slectedQueAns">
+                                <li>
+                                    <label>{{slectQueAns?.que?.question_name}}</label>
+                                    <a href="javaScript:void(0);">{{slectQueAns?.ans?.answer_name}}</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="javaScript:void(0);">Select next question</a>
+                                </li> -->
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Mobile View ends-->
+
+                    <ul class="breadCrumresults d-none d-md-flex">
+                        <li *ngFor="let slectQueAns of slectedQueAns">
+                            <label>{{slectQueAns?.que?.question_name}}</label>
+                            <a href="javaScript:void(0);">{{slectQueAns?.ans?.answer_name}}</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+
+
+            <section class="sectionWidget questionSection">
+                <div class="container">
+                    <div class="questionTitle position-relative">
+                        <a href="javaScript:void(0);" (click)="goBack();" class="backQus"
+                            *ngIf="!(this.backButton) && i === 0"><i class="fa fa-angle-double-left"
+                                aria-hidden="true"></i>
+                            Back
+                        </a>
+                        <a href="javaScript:void(0);" (click)="back();" class="backQus" *ngIf="backButton">
+                            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                            Back
+                        </a>
+                        <!-- <a href="javaScript:void(0);" style="left: 95% !important;" class="backQus" *ngIf="nextButton"
+                            (click)="getCtegories();">
+                            next <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a> -->
+                        <a href="javaScript:void(0);" style="left: 95% !important;" class="backQus" *ngIf="nextButton"
+                            (click)="showProducts();">
+                            next <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                        <h2>{{question.question_name}}</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sectionWidget catSection">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let ans of question.answer let j= index;">
+                            <div class="custom-check">
+                                <input type="radio" id="{{ans.answer_name}}" [value]="ans.id" name="radio-group"
+                                    [checked]="ans.id == slectedQueAns[i]?.ans.id ? true : false">
+                                <label for="{{ans.answer_name}}"
+                                    [ngClass]="ans.id === slectedQueAns[i]?.ans.id ? 'selected' : 'notSelected'"
+                                    (click)="clickCheckbox(question,i, ans);"><span>{{ans.answer_name}}</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+<section class="sectionWidget lookingFor">
+    <div class="container">
+        <h2>Already know what are you looking for?</h2>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 d-md-flex">
+                <input type="text" class="form-control flex-grow-1"
+                    placeholder="Start typing product name or category, specifications">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</section>

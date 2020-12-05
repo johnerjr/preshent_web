@@ -1,0 +1,33 @@
+<!-- <div class="container"> -->
+<div class="login">
+  <p class="text-center logo mb-4">
+    <img src="../../assets/img/logo.svg" alt="Preshent" />
+  </p>
+  <div class="formWidget">
+    <div class="title-widget text-center">
+      <h2>Forgot Your Password?</h2>
+      <p>
+        Enter your email below and
+        <span class="d-block"
+          >we'll email you instructions on how to reset your Password.</span
+        >
+      </p>
+    </div>
+    <p class="text-center mb-2"><img src="../../assets/img/email.svg" alt="" /></p>
+    <form class="loginForm">
+      <div class="formgroup">
+        <label class="formeffect">
+          <input type="text" class="mtinputStyle" placeholder=" " />
+          <span class="spanMT">Email</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 larger-btn form-group">
+        Send
+      </button>
+      <p class="text-center">
+        Return to <a [routerLink]="['/login']" class="underlineLink"><strong>Login</strong></a>
+      </p>
+    </form>
+  </div>
+</div>

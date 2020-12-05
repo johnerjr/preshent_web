@@ -1,0 +1,147 @@
+<ngx-ui-loader></ngx-ui-loader>
+<section class="topBreadBar">
+    <div class="container">
+        <!--Mobile View-->
+        <div class="dropdown d-block d-md-none">
+            <button class="btn btn-secondary dropdown-toggle d-block d-md-none position-relative"
+                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false"
+                aria-expanded="true">{{selectedFlow}}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul class="breadCrumresults d-md-flex">
+                    <li *ngFor="let slectQueAns of slectedQueAns">
+                        <label>{{slectQueAns?.que?.question_name}}</label>
+                        <a href="javaScript:void(0);">{{slectQueAns?.ans?.answer_name}}</a>
+                    </li>
+                    <!-- <li>
+                        <a href="javaScript:void(0);">Select next question</a>
+                    </li> -->
+
+                </ul>
+            </div>
+        </div>
+        <!--Mobile View ends-->
+
+        <ul class="breadCrumresults d-none d-md-flex">
+            <li *ngFor="let slectQueAns of slectedQueAns">
+                <label>{{slectQueAns?.que?.question_name}}</label>
+                <a href="javaScript:void(0);">{{slectQueAns?.ans?.answer_name}}</a>
+            </li>
+        </ul>
+
+    </div>
+</section>
+
+<!-- <section class="topBreadBar">
+  <div class="container">
+      <div class="dropdown d-block d-md-none">
+          <button class="btn btn-secondary dropdown-toggle d-block d-md-none position-relative" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">Renewable Energy Option</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul class="breadCrumresults d-md-flex">
+                  <li>
+                     <label>What are you looking to power?</label>
+                     <a href="#">Home</a>
+                  </li>
+                  <li>
+                      <label>What kind of property is it?</label>
+                      <a href="#">Off-grid</a>
+                   </li>
+                   <li>
+                      <label>What kind of Renewable Energy are you looking for?</label>
+                      <a href="#">Any</a>
+                   </li>
+              </ul>
+          </div>            
+      </div>
+     
+      <ul class="breadCrumresults d-none d-md-flex">
+          <li>
+              <label>What are you looking to power?</label>
+              <a href="#">Home</a>
+          </li>
+          <li>
+              <label>What kind of property is it?</label>
+              <a href="#">Off-grid</a>
+          </li>
+          <li>
+              <label>What kind of Renewable Energy are you looking for?</label>
+              <a href="#">Any</a>
+          </li>
+      </ul>
+  </div>    
+</section> -->
+
+<section class="sectionWidget py-4">
+  <div class="container">
+      <div class="d-md-flex mb-4 align-items-center">
+          <div class="leftSection">
+              <label>{{items.length}} results</label>                
+          </div>
+          <div class="rightSection ml-md-auto d-flex justify-content-between">
+              <div class="sortBt">
+                  <select class="form-control">
+                      <option>Sort by</option>
+                  </select>
+              </div>
+              <div *ngIf="viewType === 'row'" class="viewOption d-none d-md-flex ml-auto">
+                  <a href="javascript:;" (click)="showRow()" class="active"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+                  <a href="javascript:;" (click)="showList()"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+              </div>
+              <div *ngIf="viewType === 'list'" class="viewOption d-none d-md-flex ml-auto">
+                <a href="javascript:;" (click)="showRow()"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+                <a href="javascript:;" (click)="showList()" class="active"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+            </div>
+          </div>
+      </div>
+
+      <div *ngIf="viewType === 'row'" class="row productsWidget">
+        <div *ngFor="let item of items" class="col-sm-6 col-md-4 col-lg-3 form-group">
+          <div class="productFrame">
+              <p class="itemImg" *ngIf="item?.image != null"><img src="{{item?.image[0].image}}" alt="" ></p>
+              <p class="itemImg" *ngIf="item?.image === null"><img src="../../assets/img/noImage.png" alt=""></p>
+              
+              <div class="prodDes"><a href="javascript:void(0);" [routerLink]="['/product-details/',item.id]" routerLinkActive="router-link-active" >{{item.name}}</a></div>                    
+              <!-- href="./product-details/{{item.id}}" -->
+            </div>
+        </div>
+      </div>
+
+      <div *ngIf="viewType === 'list'" class="productsWidget">
+        <div *ngFor="let item of items" class="productFrame form-group d-flex">
+          <div class="Prodleftimg">
+              <img src="{{item?.image[0].image}}" alt="" *ngIf="item?.image != null">
+              <img src="../../assets/img/noImage.png" alt="" *ngIf="item?.image === null">
+
+          </div>
+          <div class="ProdrightContent p-3 flex-grow-1">
+            <!-- <a href="./product-details/{{item.id}}">{{item.name}}</a> -->
+            <a href="javascript:void(0);" [routerLink]="['/product-details/',item.id]" routerLinkActive="router-link-active" >{{item.name}}</a>               
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="paginationWidget d-flex justify-content-center">
+          <ul class="d-flex">
+              <li><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="active">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">...</a></li>
+              <li><a href="#">20</a></li>
+              <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+          </ul>
+      </div> -->
+      <!-- <div class="paginationWidget d-flex justify-content-center">
+        <ul class="d-flex">
+            <li><a href="javascript:;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+            <li><a href="javascript:;" class="active">1</a></li>
+            <li><a href="javascript:;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+        </ul>
+    </div> -->
+
+    <p-paginator [rows]="10" totalRecords="{{mainIteams.length}}" (onPageChange)="paginate($event)" class="paginationWidget"></p-paginator>
+
+  </div>
+</section>
